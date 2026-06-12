@@ -52,7 +52,7 @@ export default class TutorialScene extends Phaser.Scene {
                 body: [
                     'A base perde vida quando um inimigo chega ao fim do caminho.',
                     'Use ouro para recuperar a vida da base clicando',
-                    'no ícone de coração na interface.',
+                    'no ícone de + na parte superior.',
                 ],
                 icon: '❤️',
             },
@@ -62,7 +62,7 @@ export default class TutorialScene extends Phaser.Scene {
                     '🟢 Slime Corrompido — básico, sem atributos especiais.',
                     '🟤 Goblin da Floresta — lento, mas muito resistente.',
                     '🐺 Lobo Corrompido — rápido, mas frágil.',
-                    '🐝 Abelha Corrompida — AÉREA, requer torres de nível alto.',
+                    '🐝 Abelha Corrompida — Aérea, requer torres de nível mais altos.',
                 ],
                 icon: '👾',
             },
