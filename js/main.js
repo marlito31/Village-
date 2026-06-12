@@ -2,7 +2,7 @@ import { GameScene } from './scenes/GameScene.js';
 import { GameScene2 } from './scenes/GameScene2.js';
 import { MainMenuScene } from './scenes/MainMenuScene.js';
 import { UIScene } from './scenes/UIScene.js';
-import { TutorialScene } from './scenes/TutorialScene.js';
+import  TutorialScene  from './scenes/TutorialScene.js';
 
 const config = {
     type: Phaser.AUTO,

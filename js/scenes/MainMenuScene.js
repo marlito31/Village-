@@ -25,8 +25,8 @@ export class MainMenuScene extends Phaser.Scene {
         }).setOrigin(0.5).setInteractive();
 
         startButton.on('pointerdown', () => {
-            this.scene.start('TutorialScene');;
-            this.scene.launch('UIScene', { currentScene: 'GameScene' });
+            this.scene.start('TutorialScene');
+    
         });
 
         rankingButton.on('pointerdown', () => {
