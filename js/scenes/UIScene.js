@@ -72,21 +72,21 @@ export class UIScene extends Phaser.Scene {
 
         const playerName = prompt("Fim de jogo! Digite seu nome para salvar no ranking:", "JOGADOR");
 
-        if (playerName) {
-            fetch('http://localhost:3000/ranking', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    playerName: playerName,
-                    score: finalScore
-                })
-            })
-            .then(response => response.json())
-            .then(data => console.log('Pontuação salva:', data))
-            .catch(error => console.error('Erro ao salvar pontuação:', error));
-        }
+    if (playerName) {
+        fetch('https://n8n.incluc0de.com.br/webhook/salvar-pontuacao', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            playerName: playerName,
+            score: finalScore
+        })
+    })
+    .then(response => response.json())
+    .then(data => console.log('Pontuação salva:', data))
+    .catch(error => console.error('Erro ao salvar pontuação:', error));
+}
     
         const restartButton = this.add.text(this.cameras.main.width / 2, 500, 'Jogar Novamente', {
             fontSize: '40px', backgroundColor: '#28a745', padding: 10

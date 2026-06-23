@@ -62,32 +62,32 @@ export class MainMenuScene extends Phaser.Scene {
         const loadingText = this.add.text(0, 0, 'A carregar...', { fontSize: '32px', fontFamily: 'Arial' }).setOrigin(0.5);
         rankingContainer.add(loadingText);
 
-        fetch('http://localhost:3000/ranking')
-            .then(response => response.json())
-            .then(data => {
-                loadingText.destroy();
+    fetch('https://n8n.incluc0de.com.br/webhook/ranking')
+    .then(response => response.json())
+    .then(data => {
+        loadingText.destroy();
 
-                if (data.length === 0) {
-                    const noScoresText = this.add.text(0, 0, 'Nenhuma pontuacao registada.', { fontSize: '28px', fontFamily: 'Arial' }).setOrigin(0.5);
-                    rankingContainer.add(noScoresText);
-                    return;
-                }
+        if (data.length === 0) {
+            const noScoresText = this.add.text(0, 0, 'Nenhuma pontuacao registada.', { fontSize: '28px', fontFamily: 'Arial' }).setOrigin(0.5);
+            rankingContainer.add(noScoresText);
+            return;
+        }
 
-                let yPos = -180;
-                data.forEach((score, index) => {
-                    const rankText = `${index + 1}. ${score.playerName}`;
-                    const scoreText = `${score.score} pontos`;
+        let yPos = -180;
+        data.forEach((score, index) => {
+            const rankText = `${index + 1}. ${score.player_name}`;
+            const scoreText = `${score.score} pontos`;
 
-                    const rankLabel = this.add.text(-250, yPos, rankText, { fontSize: '28px', fontFamily: 'Arial' }).setOrigin(0, 0.5);
-                    const scoreLabel = this.add.text(250, yPos, scoreText, { fontSize: '28px', fontFamily: 'Arial' }).setOrigin(1, 0.5);
-                    
-                    rankingContainer.add([rankLabel, scoreLabel]);
-                    yPos += 40;
-                });
-            })
-            .catch(error => {
-                console.error('Erro ao buscar ranking:', error);
-                loadingText.setText('Erro ao carregar o ranking.');
-            });
-    }
+            const rankLabel = this.add.text(-250, yPos, rankText, { fontSize: '28px', fontFamily: 'Arial' }).setOrigin(0, 0.5);
+            const scoreLabel = this.add.text(250, yPos, scoreText, { fontSize: '28px', fontFamily: 'Arial' }).setOrigin(1, 0.5);
+            
+            rankingContainer.add([rankLabel, scoreLabel]);
+            yPos += 40;
+        });
+    })
+    .catch(error => {
+        console.error('Erro ao buscar ranking:', error);
+        loadingText.setText('Erro ao carregar o ranking.');
+    });
+}
 }
